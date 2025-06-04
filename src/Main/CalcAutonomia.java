@@ -1,6 +1,6 @@
 package Main;
 
-import util.Conexao; // Certifique-se que está correto
+import util.Conexao; 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,7 +8,6 @@ import java.sql.SQLException;
 
 public class CalcAutonomia {
 
-    //Obtém a autonomia total (100% de bateria) de um veículo do banco de dados.
     public static int getAutonomiaTotalVeiculo(int idVeiculo) {
         String sql = "SELECT AUTONOMIA FROM VEICULOS WHERE IDVEICULO = ?";
         try (Connection conn = Conexao.getConexao();
@@ -23,13 +22,11 @@ public class CalcAutonomia {
                 System.out.println("⚠️ Autonomia não encontrada no banco para o veículo ID: " + idVeiculo);
             }
         } catch (SQLException e) {
-            // e.printStackTrace(); // Descomente para debug detalhado do erro SQL
             System.out.println("❌ Erro ao obter autonomia total do veículo ID: " + idVeiculo + ". Detalhe: " + e.getMessage());
         }
         return -1;
     }
-    //Calcula a autonomia atual de um veículo com base na porcentagem da bateria
-    // usando a autonomia total do veículo como referência.
+    //Calcula a autonomia atual de um veículo com base na porcentagem da bateria usando a autonomia total do veículo como referência.
     public static int calcularAutonomiaComPercentual(int idVeiculo, int percentualBateria) {
         if (percentualBateria < 0 || percentualBateria > 100) {
             System.out.println("⚠️ Percentual de bateria inválido: " + percentualBateria + "%. Deve ser entre 0 e 100.");
