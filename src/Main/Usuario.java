@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Usuario {
-    private final int id; // ID do usuário no banco
+    private final int id; //ID do usuário no banco
     private final String nome;
     private final String cpf;
     private final Date dataNascimento;
@@ -18,7 +18,7 @@ public class Usuario {
     private final String telefone;
     private final String email;
 
-    // Construtor usado quando temos o ID do banco
+    //Construtor usado quando temos o ID do banco
     public Usuario(int id, String nome, String cpf, Date dataNascimento, char sexo, String telefone, String email) {
         this.id = id;
         this.nome = nome;
@@ -29,7 +29,7 @@ public class Usuario {
         this.email = email;
     }
 
-    // Getter para o ID
+    //Getter para o ID
     public int getId() {
         return id;
     }
@@ -76,7 +76,7 @@ public class Usuario {
 
             stmt.executeUpdate();
 
-            // Recuperar o ID gerado
+            //Recuperar o ID gerado
             try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
                     int idUsuario = generatedKeys.getInt(1);
@@ -89,7 +89,7 @@ public class Usuario {
             e.printStackTrace();
         }
 
-        return null; // Se falhar
+        return null;
     }
 
     public static Usuario logarUsuarioViaTerminal(Scanner scanner) {
@@ -147,7 +147,6 @@ public class Usuario {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return quantidade;
     }
 
