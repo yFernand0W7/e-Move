@@ -11,7 +11,6 @@ public class Rota {
         public String nome;
         public int linha;
         public int coluna;
-        //Futuramente, adicionar mais campos aqui (UF, LAT, LONGI, QT_ESTACOES) e ajustar o construtor e o metodo carregarPontosDoBanco() para populá-los.
 
         public Ponto(String nome, int linha, int coluna) {
             this.nome = nome;
@@ -65,8 +64,7 @@ public class Rota {
             }
         } catch (SQLException e) {
             System.err.println("❌ Erro ao carregar cidades do banco de dados: " + e.getMessage());
-            //e.printStackTrace(); // Descomente para ver o log de erro
-            return new Ponto[0]; // etorna array vazio para evitar NullPointerException
+            return new Ponto[0]; 
         }
 
         if (listaPontos.isEmpty()) {
@@ -91,7 +89,7 @@ public class Rota {
 
         //Obter autonomia inicial (pode ser parcial)
         int autonomiaInicial = Veiculos.getAutonomiaInicialParaRota(scanner, idVeiculo);
-        if (autonomiaInicial < 0) { // getAutonomiaInicialParaRota retorna -1 em caso de erro
+        if (autonomiaInicial < 0) { 
             System.out.println("❌ Não foi possível determinar a autonomia inicial do veículo para a rota. Operação cancelada.");
             return;
         }
@@ -186,7 +184,7 @@ public class Rota {
         rotaSugeridaComCidades.add(pontoOrigemReal);
         Ponto cidadeAtualSimulacao = pontoOrigemReal;
         int distanciaAcumuladaNaRotaRealSugerida = 0;
-        int limiteParadas = todosPontos.length + 2; // Contra loops infinitos
+        int limiteParadas = todosPontos.length + 2; //Contra loops
         int paradasFeitas = 0;
 
         int autonomiaDisponivelParaEsteTrecho = autonomiaInicialVeiculo;
@@ -203,8 +201,6 @@ public class Rota {
 
                 int passosIdeaisNoTrecho = (autonomiaDisponivelParaEsteTrecho > 0 && distanciaBase > 0) ? (autonomiaDisponivelParaEsteTrecho / distanciaBase) : 0;
                 if (passosIdeaisNoTrecho == 0 && autonomiaDisponivelParaEsteTrecho > 0) passosIdeaisNoTrecho = 1; // Tentar andar pelo menos 1 passo se tiver alguma autonomia
-
-                //Ponto pontoIdealNoGrid = Mapa.getPontoIdealIntermediarioNoGrid(cidadeAtualSimulacao, pontoDestinoReal, passosIdeaisNoTrecho);
 
                 for (Ponto candidato : todosPontos) {
                     if (candidato.equals(cidadeAtualSimulacao) || rotaSugeridaComCidades.contains(candidato)) {
@@ -233,7 +229,7 @@ public class Rota {
                 } else {
                     //Se não encontrou cidade intermediária, informa necessidade recarga
                     int rechargesConceituais = (autonomiaMaximaVeiculo > 0) ? ((int) Math.ceil((double) distanciaTotalGradeOrigemDestino / autonomiaMaximaVeiculo) - 1) : -1;
-                    if (rechargesConceituais < 0) rechargesConceituais = 0; // Caso autonomiaMaximaVeiculo seja inválida ou não precise
+                    if (rechargesConceituais < 0) rechargesConceituais = 0; //Caso autonomiaMaximaVeiculo seja inválida ou não precise
 
                     System.out.println("   (Não foi possível identificar uma cidade definida adequada para a próxima parada a partir de " + cidadeAtualSimulacao.nome + ")");
                     if (autonomiaMaximaVeiculo > 0 && rechargesConceituais >=0) { // Evita imprimir MAX_VALUE
