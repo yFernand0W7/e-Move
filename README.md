@@ -2,9 +2,9 @@
 
 ## Project Description
 
-e-Move is a platform specialized in strategic route planning for electric vehicles. The objective is to assist drivers in optimizing their journeys based on pre-registered charging stations. Unlike systems that rely on real-time data, our solution uses its own database with manually validated and updated information, ensuring accuracy and reliability[cite: 3].
+e-Move is a platform specialized in strategic route planning for electric vehicles. The objective is to assist drivers in optimizing their journeys based on pre-registered charging stations. Unlike systems that rely on real-time data, our solution uses its own database with manually validated and updated information, ensuring accuracy and reliability.
 
-The platform allows users to input their destinations and receive personalized routes, calculated based on their vehicle's autonomy and the location of available charging stations[cite: 4]. The system indicates strategic stopping points, estimates the remaining battery level upon arrival at the destination, and, when necessary, suggests charging stations during the trip, including the estimated additional time for each stop[cite: 5].
+The platform allows users to input their destinations and receive personalized routes, calculated based on their vehicle's autonomy and the location of available charging stations. The system indicates strategic stopping points, estimates the remaining battery level upon arrival at the destination, and, when necessary, suggests charging stations during the trip, including the estimated additional time for each stop.
 
 Currently, the project functions as a terminal-based application, with plans to evolve into a web platform.
 
