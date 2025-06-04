@@ -84,4 +84,4 @@ Currently, the project functions as a terminal-based application, with plans to 
 * Samuel Wilson Rufino - RA: 117792
 
 ---
-*This is an Interdisciplinary Project for the Information Systems course at FHO - Hermínio Ometto Foundation.*
+*This is an Interdisciplinary Project for the Information Systems course at FHO - Fundação Hermínio Ometto.*
